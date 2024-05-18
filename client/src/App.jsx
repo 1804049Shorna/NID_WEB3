@@ -4,14 +4,21 @@ import {
   Route,
   Routes,
   Link,
-  Navigate
+  Navigate,
+
 } from "react-router-dom";
 import { ethers } from "ethers";
 import abi from "./contractJson/chai.json";
-import PInfo from "./components/PInfo";
-import "./App.css"
-
-
+import PInfo from "./components/frontend/PInfo";
+import GInfo from "./components/backend/GInfo";
+import Edit from "./components/frontend/requEdit";
+import Ap from "./components/Appli";
+import NI from "./components/frontend/NIDsta";
+import LOG from "./components/LocalGov";
+import NID from "./components/frontend/getNID";
+import GEDIT from "./components/backend/getEdit"
+import WEL from "./components/welcome"
+import "./App.css";
 
 function App() {
   const [state, setState] = useState({
@@ -49,30 +56,59 @@ function App() {
           contractABI,
           signer
         );
-        // console.log(accounts);
+    
         // console.log(contract);
         setState({ provider, signer, contract });
+          
+ 
+
+      
       } catch (error) {
         alert(error.message || "Error occurred while initializing.");
       }
     };
     initialize();
-  }, []);
 
-  // const hideNavRoutes = ["/addUser", "/updateUser", "/deleteUser"]; // Routes where nav should be hidden
+    const redirectBasedOnAccount = (account) => {
+
+      if (account === "0x1613d968665C978C3a5b7A08653185377DFbEDb8") {
+        console.log("In redirection")
+        return <Navigate to="/applicant" replace />;
+      } else if (account === "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65") {
+        return <Navigate to="/LocalGov" replace />;
+      }
+      // Handle other accounts or default route if not matched
+     
+    };
+
+    redirectBasedOnAccount(account)
+  }, [account]);
+
+   
+ 
+  
 
   return (
-   <>
+    <>
+        
+      <Routes>
+        <Route path="/" element={<WEL></WEL>}></Route>
+        <Route path="/applicant" element={<Ap></Ap>}></Route>
+        <Route path="/LocalGov" element={<LOG></LOG>}></Route>
 
-         <PInfo  state={state} ></PInfo>
+
+        <Route path="/apply" element={<PInfo state={state} />}></Route>
+
+        <Route path="/admin" element={<GInfo state={state} />}></Route>
+        <Route path="/RequestEdit" element={<Edit></Edit>}></Route>
+        <Route path="/Status" element={<NI></NI>}></Route>
+        <Route path="/getnid" element={<NID></NID>}></Route>
+        <Route path="/getEditInfo" element={<GEDIT></GEDIT>}></Route>
+      </Routes>
+
    
-   
-      
-    
-   </>
+    </>
   );
 }
-
-
 
 export default App;

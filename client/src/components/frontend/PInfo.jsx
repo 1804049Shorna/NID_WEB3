@@ -4,7 +4,7 @@ const PInfo = ({ state }) => {
   const adduser = async (event) => {
     event.preventDefault();
     const { contract } = state;
-    console.log(contract);
+    // console.log(contract);
 
     const name = document.querySelector("#name").value;
     const gender = document.querySelector("#gender").value;
