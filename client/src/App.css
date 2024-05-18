@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  /* background: rgb(188, 240, 193); */
+  background-color: white;
+ 
+ 
+}
+.body{
+  margin: 0;
+  place-items: center;
+  min-height: 100vh;
+}
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.con{
+  background-color: aqua;
+}
