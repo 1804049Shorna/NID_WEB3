@@ -1,6 +1,7 @@
 import "./personalInfo.css";
 
 const PInfo = ({ state }) => {
+  console.log("in apply")
   const adduser = async (event) => {
     event.preventDefault();
     const { contract } = state;
@@ -68,7 +69,8 @@ const PInfo = ({ state }) => {
     const union = document.querySelector("#union").value;
     const moholla = document.querySelector("#moholla").value;
     const village = document.querySelector("#village").value;
-    const homeHoldingNumber = document.querySelector("#homeHoldingNumber").value;
+    const homeHoldingNumber =
+      document.querySelector("#homeHoldingNumber").value;
     const postalCode = document.querySelector("#postalCode").value;
 
     const ADDaddress = await contract.addUserAddress(
@@ -84,7 +86,6 @@ const PInfo = ({ state }) => {
     );
     ADDaddress.wait();
     alert("Address information added successfully.");
-
   };
 
   return (
@@ -264,67 +265,69 @@ const PInfo = ({ state }) => {
               <p>ADDRESS INFORMATION</p>
             </div>
             <div className="address-info">
-  <div className="col-6">
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Country</label>
-      </div>
-      <input type="text" required="required" id="country" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Division</label>
-      </div>
-      <input type="text" required="required" id="division" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Upazila</label>
-      </div>
-      <input type="text" required="required" id="upazila" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">RMO</label>
-      </div>
-      <input type="text" required="required" id="rmo" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Union</label>
-      </div>
-      <input type="text" required="required" id="union" />
-    </div>
-  </div>
-  <div className="col-6">
-   
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Moholla</label>
-      </div>
-      <input type="text" required="required" id="moholla" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Village</label>
-      </div>
-      <input type="text" required="required" id="village" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Home Holding Number</label>
-      </div>
-      <input type="text" required="required" id="homeHoldingNumber" />
-    </div>
-    <div className="inputbox">
-      <div className="label-div">
-        <label htmlFor="">Postal Code</label>
-      </div>
-      <input type="text" required="required" id="postalCode" />
-    </div>
-  </div>
-</div>
-
+              <div className="col-6">
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Country</label>
+                  </div>
+                  <input type="text" required="required" id="country" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Division</label>
+                  </div>
+                  <input type="text" required="required" id="division" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Upazila</label>
+                  </div>
+                  <input type="text" required="required" id="upazila" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">RMO</label>
+                  </div>
+                  <input type="text" required="required" id="rmo" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Union</label>
+                  </div>
+                  <input type="text" required="required" id="union" />
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Moholla</label>
+                  </div>
+                  <input type="text" required="required" id="moholla" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Village</label>
+                  </div>
+                  <input type="text" required="required" id="village" />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Home Holding Number</label>
+                  </div>
+                  <input
+                    type="text"
+                    required="required"
+                    id="homeHoldingNumber"
+                  />
+                </div>
+                <div className="inputbox">
+                  <div className="label-div">
+                    <label htmlFor="">Postal Code</label>
+                  </div>
+                  <input type="text" required="required" id="postalCode" />
+                </div>
+              </div>
+            </div>
 
             <div className="inputbox">
               <input type="submit" value="ADD" id="submit" />

@@ -1,37 +1,34 @@
 import { useState, useEffect } from "react";
-import "./getNID.css"
+import "./putNID.css";
 
-const getNID = ({state}) => {
-
+const putNID = ({ state }) => {
   const { contract } = state;
   console.log(contract);
-  const [nid, setnid] = useState("");
-  const gnid = async (event) => {
+  const [add, setAdd] = useState("");
+  const gadd = async (event) => {
     event.preventDefault();
     const { contract } = state;
     console.log(contract);
 
-    const Add = document.querySelector("#gnid").value;
-    const gn = await contract.getNID(Add);
-    setnid(gn);
-    console.log(gn);
+    const Add = document.querySelector("#pnid").value;
+    const pn = await contract.getNID_Holder(Add);
+    setAdd(pn);
+    console.log(pn);
   };
 
-
-
-
   return (
-   <>
-     <header className="head-area">
+    <>
+      <header className="head-area">
         <div className="container fix">
-          <h2> Get Your NID </h2>
+          <h2> Get User </h2>
         </div>
       </header>
+
       <div className="form-section">
-        <form onSubmit={gnid}>
+        <form onSubmit={gadd}>
           <div className="input-area">
-            <label htmlFor="">Address</label>
-            <input type="text" id="gnid" />
+            <label htmlFor="">NID</label>
+            <input type="text" id="pnid" />
           </div>
 
           <div className="input-area">
@@ -40,11 +37,11 @@ const getNID = ({state}) => {
           </div>
         </form>
         <div className="display-area">
-          <p>NID:{nid}</p>
+          <p>Address:{add}</p>
         </div>
       </div>
-   </>
-  )
-}
+    </>
+  );
+};
 
-export default getNID
+export default putNID;

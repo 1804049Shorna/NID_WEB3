@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-const LocalGov= () => {
+const LocalGov= ({account}) => {
+
+if(account==="0xf88C00985Cb760181aAAc729aedFeb17d385cE7E"){
   return (
     <>
       <nav>
@@ -11,16 +13,20 @@ const LocalGov= () => {
           <li>
             <Link to="/getEditInfo">Get All Edit Request</Link>
           </li>
+          
           <li>
-            <Link to="/Status"> Check Status</Link>
+            <Link to="/updateInfo">Update Info</Link>
           </li>
           <li>
-            <Link to="/getnid"> Get NID</Link>
+            <Link to="/giveStatus">Give Status</Link>
           </li>
+        
         </ul>
       </nav>
     </>
   )
+}
+  
 }
 
 export default LocalGov
